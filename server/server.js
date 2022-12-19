@@ -17,7 +17,7 @@ app.post("/api", async (req, res) => {
   const input = req.body.message;
   const gptResponse = await client.createCompletion({
     model: "text-davinci-002",
-    max_tokens: 2000,
+    max_tokens: 4000,
     prompt: input.toString(),
   });
   res.send(gptResponse.data.choices[0].text);
