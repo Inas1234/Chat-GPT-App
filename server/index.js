@@ -13,6 +13,10 @@ const client = new openai.OpenAIApi(configuration);
 
 app.use(express.json());
 
+app.get("/api", (req, res) => {
+  res.send("GETOOO!");
+});
+
 app.post("/api", async (req, res) => {
   const input = req.body.message;
   const gptResponse = await client.createCompletion({
