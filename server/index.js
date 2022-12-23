@@ -6,7 +6,7 @@ const app = express();
 const port = 3000;
 
 const configuration = new openai.Configuration({
-  apiKey: "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",
+  apiKey: "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",
 });
 
 const client = new openai.OpenAIApi(configuration);
