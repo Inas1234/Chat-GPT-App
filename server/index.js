@@ -1,15 +1,18 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const openai = require("openai");
+const cors = require("cors");
 dotenv.config();
 const app = express();
 const port = 3000;
 
 const configuration = new openai.Configuration({
-  apiKey: "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",
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 const client = new openai.OpenAIApi(configuration);
+
+app.use(cors());
 
 app.use(express.json());
 
@@ -22,6 +25,7 @@ app.post("/api", async (req, res) => {
   const gptResponse = await client.createCompletion({
     model: "text-davinci-002",
     max_tokens: 4000,
+    temperature: 0.5,
     prompt: input.toString(),
   });
   res.send(gptResponse.data.choices[0].text);
