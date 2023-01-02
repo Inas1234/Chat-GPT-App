@@ -8,7 +8,7 @@ const port = 3000;
 
 const configuration = new openai.Configuration({
   organization: "org-I9PzCwMaNqlvE1g9tXKc136G",
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: "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",
 });
 
 const client = new openai.OpenAIApi(configuration);
